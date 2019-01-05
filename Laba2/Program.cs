@@ -20,16 +20,13 @@ namespace Laba2
             ships.Add(dracula);
             Customer ivan = new Customer("Ivan Ivanov", "1234567","ivanushka@mail.ru", PaymentType.Cash);
             Customer sergey = new Customer("Sergey Anonim", "55555555", "shnurov@bk.ru", PaymentType.Promises);
-            List<Reservation>reservations = new List<Reservation>();
+            Reservations<Reservation>reservations = new Reservations<Reservation>();
     
             Reservation reserv1 = new Reservation(ivan, lastochka, new Period(new DateTime(2019, 5, 10), new DateTime(2019, 5, 12)));
             Reservation reserv2 = new Reservation(sergey, lastochka, new Period(new DateTime(2019, 5, 10), new DateTime(2019, 5, 12)));
-            
-            if (reserv1.IsAvailableOnPeriod())
-                reservations.Add(reserv1);
-            if (reserv2.IsAvailableOnPeriod())
-                reservations.Add(reserv2);
 
+            reservations.TryAdd(reserv1);
+            reservations.TryAdd(reserv2);
 
 
             foreach (var r in reservations)

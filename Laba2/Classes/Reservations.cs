@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Laba2.Classes
 {
@@ -9,12 +10,21 @@ namespace Laba2.Classes
         Reservation reservation { get; set; }
 
 
-        public new void Add(T reservation)
+        public bool TryAdd(T reservation)
         {
-            if (reservation.IsAvailableOnPeriod())
+            if (IsAvailableOnPeriod(reservation))
+            {
                 base.Add(reservation);
+                return true;
+            }
+            return false;
         }
 
-    
+        public bool IsAvailableOnPeriod(T reserv)
+        {
+            return this.All(r => !reserv.Period.HasCollision(reserv.Period)
+                            && reserv.Ship == reservation.Ship);
+        }
+
     }
 }

@@ -18,22 +18,7 @@ namespace Laba2.Classes
             Period = period;
         }
 
-        public List<Reservation> GetReservatons()
-        {
-            return new List<Reservation>();
-
-        }
-
-        public bool IsAvailableOnPeriod()
-        {
-            List<Reservation> reservations = GetReservatons();
-            var reservationsInPeriod = from reservation in reservations
-                                       where reservation.Ship == Ship
-                                       && (!Period.HasCollision(Period))
-                                       select reservation;
-
-            return reservationsInPeriod.Any() ? false : true;
-        }
+        
         public string Print()
         {
             return $"{Customer.Print()}, {Ship.Print()}, {Period.Print()}";
