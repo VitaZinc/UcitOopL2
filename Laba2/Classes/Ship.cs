@@ -27,12 +27,9 @@ namespace Laba2.Classes
             return age;
         }
 
-        public string Print()
-        {
-             return $"Корабль: {Name}, Год производства: {ConstructionYear.Year}";
-        }
+        public override string ToString() => $"Корабль: {Name}, Год производства: {ConstructionYear.Year}";
 
 
-    
+
     }
 }

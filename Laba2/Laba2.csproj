@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\YachtTypes.cs" />
+    <Compile Include="Enums\PaymentTypes.cs" />
     <Compile Include="Classes\Reservations.cs" />
     <Compile Include="Classes\Period.cs" />
     <Compile Include="Classes\Customer.cs" />

@@ -4,18 +4,15 @@ namespace Laba2.Classes
 {
     class Human : IHuman
     {
-        public string Name { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        public string Name { get; }
+        public string PhoneNumber { get; }
+        public string Email { get; }
         public Human(string name, string phone, string email)
         {
             Name = name;
             PhoneNumber = phone;
             Email = email;
         }
-        public virtual string Print()
-        {
-            return $"Имя: {Name}, Телефон: {PhoneNumber}, E-mail: {Email}";
-        }
+        public override string ToString() => $"Имя: {Name}, Телефон: {PhoneNumber}, E-mail: {Email}";
     }
 }

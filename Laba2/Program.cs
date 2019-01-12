@@ -18,8 +18,8 @@ namespace Laba2
             ships.Add(lastochka);
             ships.Add(kruzenshtern);
             ships.Add(dracula);
-            Customer ivan = new Customer("Ivan Ivanov", "1234567","ivanushka@mail.ru", PaymentType.Cash);
-            Customer sergey = new Customer("Sergey Anonim", "55555555", "shnurov@bk.ru", PaymentType.Promises);
+            Customer ivan = new Customer("Ivan Ivanov", "1234567","ivanushka@mail.ru", PaymentTypes.Cash);
+            Customer sergey = new Customer("Sergey Anonim", "55555555", "shnurov@bk.ru", PaymentTypes.Promises);
             Reservations<Reservation>reservations = new Reservations<Reservation>();
     
             Reservation reserv1 = new Reservation(ivan, lastochka, new Period(new DateTime(2019, 5, 10), new DateTime(2019, 5, 12)));
@@ -28,9 +28,8 @@ namespace Laba2
             reservations.TryAdd(reserv1);
             reservations.TryAdd(reserv2);
 
-
             foreach (var r in reservations)
-                Console.WriteLine(r.Print());
+                Console.WriteLine(r.ToString());
 
             
             

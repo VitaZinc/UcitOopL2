@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Laba2.Classes
@@ -7,24 +8,39 @@ namespace Laba2.Classes
     class Reservations <T> : List<T> where T:Reservation
     {
 
-        Reservation reservation { get; set; }
-
+        Reservation Reservation { get; }
 
         public bool TryAdd(T reservation)
         {
+            base.Add(reservation);
             if (IsAvailableOnPeriod(reservation))
             {
-                base.Add(reservation);
                 return true;
             }
             return false;
         }
 
-        public bool IsAvailableOnPeriod(T reserv)
+        public bool IsAvailableOnPeriod(T reservation) 
         {
-            return this.All(r => !reserv.Period.HasCollision(reserv.Period)
-                            && reserv.Ship == reservation.Ship);
+            var reservationsInPeriod = from r in this
+                                       where r.Ship == reservation.Ship
+                                       && (!reservation.Period.HasCollision(reservation.Period))
+                                       select r;
+
+            return reservationsInPeriod.Any() ? false : true;
+
+            ////return this.Any(r =>
+            //reservation.Ship == Reservation.Ship &&
+            //!reservation.Period.HasCollision(Reservation.Period));
+
         }
+
+        //public bool IsAvailableOnDate(Ship ship, DateTime date)
+        //{
+        //    return !this.Any(r => Reservation.Ship == ship
+        //    && Reservation.Period.From <= date
+        //    && Reservation.Period.To >= date);
+        //}
 
     }
 }

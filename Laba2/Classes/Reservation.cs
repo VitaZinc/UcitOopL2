@@ -1,4 +1,5 @@
 ﻿using Laba2.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,10 +8,10 @@ namespace Laba2.Classes
 
     class Reservation : IReservation
     {
-        public Period Period { get; set; }
-        public Customer Customer { get; set; }
-        public Ship Ship { get; set; }
-
+        public Period Period { get; }
+        public Customer Customer { get;}
+        public Ship Ship { get; }
+        
         public Reservation(Customer client, Ship ship, Period period)
         {
             Customer = client;
@@ -19,9 +20,9 @@ namespace Laba2.Classes
         }
 
         
-        public string Print()
+        public override string ToString()
         {
-            return $"{Customer.Print()}, {Ship.Print()}, {Period.Print()}";
+            return $"{Customer.ToString()}, {Ship.ToString()}, {Period.ToString()}";
         }
 
 

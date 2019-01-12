@@ -1,5 +1,6 @@
 ﻿using Laba2.Interfaces;
 using System;
+using Laba2.Enums;
 
 
 namespace Laba2.Classes
@@ -7,18 +8,10 @@ namespace Laba2.Classes
 
     class Yacht : Ship, IYacht
     {
-        public enum YachtType
-        {
-            Basic,
-            Comfort,
-            Gorgeous,
-            Unbelievable,
-            BillGeytsYacht
-        }
 
-        YachtType CoolnessType { get; set; }
+        YachtTypes CoolnessType { get; set; }
 
-        public Yacht(string name, DateTime constructionYear, YachtType type) : base(name, constructionYear)
+        public Yacht(string name, DateTime constructionYear, YachtTypes type) : base(name, constructionYear)
         {
             CoolnessType=type;
         }

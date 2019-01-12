@@ -4,8 +4,8 @@ namespace Laba2.Classes
 {
     class Period
     {
-        DateTime From { get; }
-        DateTime To { get; }
+        public DateTime From { get; }
+        public DateTime To { get; }
 
         public Period(DateTime from, DateTime to)
         {
@@ -14,17 +14,9 @@ namespace Laba2.Classes
             To = to;
         }
 
-        public bool HasCollision(Period period)
-        {
-            return From >= period.To || To <= period.From;
-        }
+        public bool HasCollision(Period period) => !(period.To < From || period.From > To);
 
-
-        public string Print()
-        {
-
-            return "period in progress";
-        }
+        public override string ToString() => $"Период: с {From.ToString("d")} по {To.ToString("d")}";
     }
 
 }

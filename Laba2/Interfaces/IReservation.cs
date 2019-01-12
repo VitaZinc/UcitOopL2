@@ -5,8 +5,8 @@ namespace Laba2.Interfaces
 {
     interface IReservation
     {
-        Period Period { get; set; }
-        Customer Customer { get; set; }
-        Ship Ship { get; set; }
+        Period Period { get; }
+        Customer Customer { get; }
+        Ship Ship { get; }
     }
 }

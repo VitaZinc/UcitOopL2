@@ -17,9 +17,9 @@ namespace Laba2.Classes
             WagePerHour = wagePerHour;
         }
 
-        public override string Print()
+        public override string ToString()
         {
-            return $"{base.Print()}, Работает с: {StartWorking}, З/п в час: {WagePerHour}";
+            return $"{base.ToString()}, Работает с: {StartWorking}, З/п в час: {WagePerHour}";
         }
 
         public int GetExperienceYears(DateTime startWorking)
